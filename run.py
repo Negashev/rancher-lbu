@@ -103,7 +103,7 @@ async def update_load_balancer_service(request):
                                         ]
                           }
                      })
-    end_point = f"{V2_BETA}/projects/{os.getenv('RANCHER_PROJECT_ID')}/loadbalancerservices/{load_balancer_id}"
+    end_point = f"{V2_BETA}/projects/{os.getenv('RANCHER_ENVIRONMENT')}/loadbalancerservices/{load_balancer_id}"
     data = await put(end_point, payload)
     print(data['id'])
     hostname = "{}-{}.{}:{}".format(

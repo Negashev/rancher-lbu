@@ -9,7 +9,7 @@ required
 RANCHER_URL=http://rancher.my
 RANCHER_ACCESS_KEY=
 RANCHER_SECRET_KEY=
-RANCHER_PROJECT_ID=1a5
+RANCHER_ENVIRONMENT=1a5
 RANCHER_LB_ID=1s36 # load balancer
 ENV_DOMAIN=rancher.dev.my # end of domain
 ```
