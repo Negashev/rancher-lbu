@@ -39,8 +39,3 @@ review:
     name: review/$CI_ENVIRONMENT_SLUG
     on_stop: stop_review
 ```
-
-
-```bash
-curl 
-```
