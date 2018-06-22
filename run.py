@@ -10,6 +10,7 @@ from japronto import Application
 V1 = 'v1'
 V2_BETA = 'v2-beta'
 
+CI_ENVIRONMENT_SLUG = os.getenv(f"{os.getenv('RLBU_ENVIRONMENT', os.getenv('CI_ENVIRONMENT_SLUG', 'rlbu-url-not-set'))}")
 
 async def get(url):
     """Sends get request"""
@@ -95,7 +96,7 @@ async def update_load_balancer_service(request):
                          {"portRules": [{"protocol": os.getenv('RANCHER_LB_PROTOCOL', "http"),
                                          "type": os.getenv('RANCHER_LB_TYPE', "portRule"),
                                          "hostname": "{}-{}.{}".format(os.getenv('CI_PROJECT_PATH_SLUG'),
-                                                                       os.getenv('CI_ENVIRONMENT_SLUG'),
+                                                                       CI_ENVIRONMENT_SLUG,
                                                                        os.getenv('ENV_DOMAIN')),
                                          "sourcePort": int(os.getenv('EXTERNAL_PORT', 80)),
                                          "targetPort": int(os.getenv('INTERNAL_PORT', 80)),
@@ -108,7 +109,7 @@ async def update_load_balancer_service(request):
     print(data['id'])
     hostname = "{}-{}.{}:{}".format(
         os.getenv('CI_PROJECT_PATH_SLUG'),
-        os.getenv('CI_ENVIRONMENT_SLUG'),
+        CI_ENVIRONMENT_SLUG,
         os.getenv('ENV_DOMAIN'),
         os.getenv('EXTERNAL_PORT', 80)
     )
