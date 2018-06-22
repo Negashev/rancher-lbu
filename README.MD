@@ -5,6 +5,9 @@ Rancher load balancer update
 write for gitlab CI as a service
 
 required
+
+#### All these variables must be declared in .gitlab-ci.yml
+
 ```bash
 RANCHER_URL=http://rancher.my
 RANCHER_ACCESS_KEY=
@@ -25,6 +28,14 @@ review:
   image:
     name: rancher/cli:v0.6.9
     entrypoint: ["/bin/sh", "-c"]
+  variables:
+    RLBU_ENVIRONMENT: "$CI_COMMIT_REF_SLUG"
+    RANCHER_URL: "$RANCHER_URL"
+    RANCHER_ACCESS_KEY: "$RANCHER_ACCESS_KEY"
+    RANCHER_SECRET_KEY: "$RANCHER_SECRET_KEY"
+    RANCHER_ENVIRONMENT: "$RANCHER_ENVIRONMENT"
+    RANCHER_LB_ID: "$RANCHER_LB_ID"
+    ENV_DOMAIN: "$ENV_DOMAIN"
   service:    
   - name: negash/rancher-lbu
     alias: rlbu
