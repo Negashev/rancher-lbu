@@ -9,8 +9,9 @@ from japronto import Application
 
 V1 = 'v1'
 V2_BETA = 'v2-beta'
+CI_ENVIRONMENT_SLUG = os.getenv('CI_ENVIRONMENT_SLUG', 'rlbu-url-not-set')
+CI_ENVIRONMENT_SLUG = os.getenv('RLBU_ENVIRONMENT', CI_ENVIRONMENT_SLUG)
 
-CI_ENVIRONMENT_SLUG = os.getenv(f"{os.getenv('RLBU_ENVIRONMENT', os.getenv('CI_ENVIRONMENT_SLUG', 'rlbu-url-not-set'))}")
 
 async def get(url):
     """Sends get request"""
