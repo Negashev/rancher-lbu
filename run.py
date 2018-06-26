@@ -98,8 +98,8 @@ async def update_load_balancer_service(request):
                     {"lbConfig":
                          {"portRules": [{"protocol": os.getenv('RANCHER_LB_PROTOCOL', "http"),
                                          "type": os.getenv('RANCHER_LB_TYPE', "portRule"),
-                                         "hostname": "{}-{}.{}".format(RLBU_PROJECT_PATH_SLUG,
-                                                                       RLBU_ENVIRONMENT_SLUG,
+                                         "hostname": "{}-{}.{}".format(RLBU_ENVIRONMENT_SLUG,
+                                                                       RLBU_PROJECT_PATH_SLUG,
                                                                        os.getenv('ENV_DOMAIN')),
                                          "sourcePort": int(os.getenv('EXTERNAL_PORT', 80)),
                                          "targetPort": int(os.getenv('INTERNAL_PORT', 80)),
@@ -111,8 +111,8 @@ async def update_load_balancer_service(request):
     data = await put(end_point, payload)
     print(data['id'])
     hostname = "{}-{}.{}:{}".format(
-        RLBU_PROJECT_PATH_SLUG,
         RLBU_ENVIRONMENT_SLUG,
+        RLBU_PROJECT_PATH_SLUG,
         os.getenv('ENV_DOMAIN'),
         os.getenv('EXTERNAL_PORT', 80)
     )
