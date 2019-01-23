@@ -117,7 +117,7 @@ async def update_load_balancer_service(request):
         os.getenv('EXTERNAL_PORT', 80)
     )
     print(f"update lb for {hostname}")
-    return request.Response(text=hostname, mime_type="text/html")
+    return request.Response(text=hostname+"\n", mime_type="text/html")
 
 
 app = Application()
