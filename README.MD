@@ -1,4 +1,6 @@
 # rancher-lbu
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FNegashev%2Francher-lbu.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FNegashev%2Francher-lbu?ref=badge_shield)
+
 
 Rancher load balancer update
 
@@ -50,3 +52,7 @@ review:
     name: review/$CI_ENVIRONMENT_SLUG
     on_stop: stop_review
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FNegashev%2Francher-lbu.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FNegashev%2Francher-lbu?ref=badge_large)
